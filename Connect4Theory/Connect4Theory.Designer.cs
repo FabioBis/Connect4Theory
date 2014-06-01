@@ -1141,6 +1141,7 @@ namespace Connect4Theory
             // stepLabel40
             // 
             this.stepLabel40.AutoSize = true;
+            this.stepLabel40.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel40.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel40.Image")));
             this.stepLabel40.Location = new System.Drawing.Point(356, 356);
@@ -1152,6 +1153,7 @@ namespace Connect4Theory
             // stepLabel39
             // 
             this.stepLabel39.AutoSize = true;
+            this.stepLabel39.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel39.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel39.Image")));
             this.stepLabel39.Location = new System.Drawing.Point(286, 356);
@@ -1163,6 +1165,7 @@ namespace Connect4Theory
             // stepLabel38
             // 
             this.stepLabel38.AutoSize = true;
+            this.stepLabel38.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel38.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel38.Image")));
             this.stepLabel38.Location = new System.Drawing.Point(216, 356);
@@ -1174,6 +1177,7 @@ namespace Connect4Theory
             // stepLabel37
             // 
             this.stepLabel37.AutoSize = true;
+            this.stepLabel37.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel37.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel37.Image")));
             this.stepLabel37.Location = new System.Drawing.Point(146, 356);
@@ -1185,6 +1189,7 @@ namespace Connect4Theory
             // stepLabel34
             // 
             this.stepLabel34.AutoSize = true;
+            this.stepLabel34.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel34.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel34.Image")));
             this.stepLabel34.Location = new System.Drawing.Point(426, 286);
@@ -1196,6 +1201,7 @@ namespace Connect4Theory
             // stepLabel33
             // 
             this.stepLabel33.AutoSize = true;
+            this.stepLabel33.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel33.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel33.Image")));
             this.stepLabel33.Location = new System.Drawing.Point(356, 286);
@@ -1207,6 +1213,7 @@ namespace Connect4Theory
             // stepLabel32
             // 
             this.stepLabel32.AutoSize = true;
+            this.stepLabel32.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel32.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel32.Image")));
             this.stepLabel32.Location = new System.Drawing.Point(286, 286);
@@ -1218,6 +1225,7 @@ namespace Connect4Theory
             // stepLabel31
             // 
             this.stepLabel31.AutoSize = true;
+            this.stepLabel31.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel31.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel31.Image")));
             this.stepLabel31.Location = new System.Drawing.Point(216, 286);
@@ -1229,6 +1237,7 @@ namespace Connect4Theory
             // stepLabel30
             // 
             this.stepLabel30.AutoSize = true;
+            this.stepLabel30.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel30.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel30.Image")));
             this.stepLabel30.Location = new System.Drawing.Point(146, 286);
@@ -1240,6 +1249,7 @@ namespace Connect4Theory
             // stepLabel29
             // 
             this.stepLabel29.AutoSize = true;
+            this.stepLabel29.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel29.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel29.Image")));
             this.stepLabel29.Location = new System.Drawing.Point(76, 286);
@@ -1251,6 +1261,7 @@ namespace Connect4Theory
             // stepLabel28
             // 
             this.stepLabel28.AutoSize = true;
+            this.stepLabel28.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel28.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel28.Image")));
             this.stepLabel28.Location = new System.Drawing.Point(0, 286);
@@ -1262,6 +1273,7 @@ namespace Connect4Theory
             // stepLabel27
             // 
             this.stepLabel27.AutoSize = true;
+            this.stepLabel27.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel27.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel27.Image")));
             this.stepLabel27.Location = new System.Drawing.Point(426, 216);
@@ -1273,6 +1285,7 @@ namespace Connect4Theory
             // stepLabel26
             // 
             this.stepLabel26.AutoSize = true;
+            this.stepLabel26.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel26.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel26.Image")));
             this.stepLabel26.Location = new System.Drawing.Point(356, 216);
@@ -1284,6 +1297,7 @@ namespace Connect4Theory
             // stepLabel25
             // 
             this.stepLabel25.AutoSize = true;
+            this.stepLabel25.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel25.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel25.Image")));
             this.stepLabel25.Location = new System.Drawing.Point(286, 216);
@@ -1295,6 +1309,7 @@ namespace Connect4Theory
             // stepLabel24
             // 
             this.stepLabel24.AutoSize = true;
+            this.stepLabel24.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel24.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel24.Image")));
             this.stepLabel24.Location = new System.Drawing.Point(216, 216);
@@ -1306,6 +1321,7 @@ namespace Connect4Theory
             // stepLabel23
             // 
             this.stepLabel23.AutoSize = true;
+            this.stepLabel23.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel23.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel23.Image")));
             this.stepLabel23.Location = new System.Drawing.Point(146, 216);
@@ -1317,6 +1333,7 @@ namespace Connect4Theory
             // stepLabel22
             // 
             this.stepLabel22.AutoSize = true;
+            this.stepLabel22.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel22.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel22.Image")));
             this.stepLabel22.Location = new System.Drawing.Point(76, 216);
@@ -1328,6 +1345,7 @@ namespace Connect4Theory
             // stepLabel21
             // 
             this.stepLabel21.AutoSize = true;
+            this.stepLabel21.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel21.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel21.Image")));
             this.stepLabel21.Location = new System.Drawing.Point(0, 216);
@@ -1339,6 +1357,7 @@ namespace Connect4Theory
             // stepLabel20
             // 
             this.stepLabel20.AutoSize = true;
+            this.stepLabel20.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel20.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel20.Image")));
             this.stepLabel20.Location = new System.Drawing.Point(426, 146);
@@ -1350,6 +1369,7 @@ namespace Connect4Theory
             // stepLabel19
             // 
             this.stepLabel19.AutoSize = true;
+            this.stepLabel19.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel19.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel19.Image")));
             this.stepLabel19.Location = new System.Drawing.Point(356, 146);
@@ -1361,6 +1381,7 @@ namespace Connect4Theory
             // stepLabel18
             // 
             this.stepLabel18.AutoSize = true;
+            this.stepLabel18.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel18.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel18.Image")));
             this.stepLabel18.Location = new System.Drawing.Point(286, 146);
@@ -1372,6 +1393,7 @@ namespace Connect4Theory
             // stepLabel17
             // 
             this.stepLabel17.AutoSize = true;
+            this.stepLabel17.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel17.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel17.Image")));
             this.stepLabel17.Location = new System.Drawing.Point(216, 146);
@@ -1383,6 +1405,7 @@ namespace Connect4Theory
             // stepLabel16
             // 
             this.stepLabel16.AutoSize = true;
+            this.stepLabel16.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel16.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel16.Image")));
             this.stepLabel16.Location = new System.Drawing.Point(146, 146);
@@ -1394,6 +1417,7 @@ namespace Connect4Theory
             // stepLabel15
             // 
             this.stepLabel15.AutoSize = true;
+            this.stepLabel15.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel15.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel15.Image")));
             this.stepLabel15.Location = new System.Drawing.Point(76, 146);
@@ -1405,6 +1429,7 @@ namespace Connect4Theory
             // stepLabel14
             // 
             this.stepLabel14.AutoSize = true;
+            this.stepLabel14.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel14.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel14.Image")));
             this.stepLabel14.Location = new System.Drawing.Point(0, 146);
@@ -1416,6 +1441,7 @@ namespace Connect4Theory
             // stepLabel12
             // 
             this.stepLabel12.AutoSize = true;
+            this.stepLabel12.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel12.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel12.Image")));
             this.stepLabel12.Location = new System.Drawing.Point(356, 76);
@@ -1427,6 +1453,7 @@ namespace Connect4Theory
             // stepLabel11
             // 
             this.stepLabel11.AutoSize = true;
+            this.stepLabel11.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel11.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel11.Image")));
             this.stepLabel11.Location = new System.Drawing.Point(286, 76);
@@ -1438,6 +1465,7 @@ namespace Connect4Theory
             // stepLabel10
             // 
             this.stepLabel10.AutoSize = true;
+            this.stepLabel10.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel10.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel10.Image")));
             this.stepLabel10.Location = new System.Drawing.Point(216, 76);
@@ -1449,6 +1477,7 @@ namespace Connect4Theory
             // stepLabel09
             // 
             this.stepLabel09.AutoSize = true;
+            this.stepLabel09.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel09.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel09.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel09.Image")));
             this.stepLabel09.Location = new System.Drawing.Point(146, 76);
@@ -1460,6 +1489,7 @@ namespace Connect4Theory
             // stepLabel05
             // 
             this.stepLabel05.AutoSize = true;
+            this.stepLabel05.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel05.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel05.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel05.Image")));
             this.stepLabel05.Location = new System.Drawing.Point(356, 0);
@@ -1471,6 +1501,7 @@ namespace Connect4Theory
             // stepLabel04
             // 
             this.stepLabel04.AutoSize = true;
+            this.stepLabel04.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel04.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel04.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel04.Image")));
             this.stepLabel04.Location = new System.Drawing.Point(286, 0);
@@ -1482,6 +1513,7 @@ namespace Connect4Theory
             // stepLabel03
             // 
             this.stepLabel03.AutoSize = true;
+            this.stepLabel03.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel03.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel03.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel03.Image")));
             this.stepLabel03.Location = new System.Drawing.Point(216, 0);
@@ -1493,6 +1525,7 @@ namespace Connect4Theory
             // stepLabel02
             // 
             this.stepLabel02.AutoSize = true;
+            this.stepLabel02.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel02.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel02.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel02.Image")));
             this.stepLabel02.Location = new System.Drawing.Point(146, 0);
@@ -1504,6 +1537,7 @@ namespace Connect4Theory
             // stepLabel00
             // 
             this.stepLabel00.AutoSize = true;
+            this.stepLabel00.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel00.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel00.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel00.Image")));
             this.stepLabel00.Location = new System.Drawing.Point(0, 0);
@@ -1515,6 +1549,7 @@ namespace Connect4Theory
             // stepLabel01
             // 
             this.stepLabel01.AutoSize = true;
+            this.stepLabel01.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel01.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel01.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel01.Image")));
             this.stepLabel01.Location = new System.Drawing.Point(76, 0);
@@ -1526,6 +1561,7 @@ namespace Connect4Theory
             // stepLabel06
             // 
             this.stepLabel06.AutoSize = true;
+            this.stepLabel06.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel06.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel06.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel06.Image")));
             this.stepLabel06.Location = new System.Drawing.Point(426, 0);
@@ -1537,6 +1573,7 @@ namespace Connect4Theory
             // stepLabel07
             // 
             this.stepLabel07.AutoSize = true;
+            this.stepLabel07.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel07.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel07.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel07.Image")));
             this.stepLabel07.Location = new System.Drawing.Point(0, 76);
@@ -1548,6 +1585,7 @@ namespace Connect4Theory
             // stepLabel08
             // 
             this.stepLabel08.AutoSize = true;
+            this.stepLabel08.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel08.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel08.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel08.Image")));
             this.stepLabel08.Location = new System.Drawing.Point(76, 76);
@@ -1559,6 +1597,7 @@ namespace Connect4Theory
             // stepLabel13
             // 
             this.stepLabel13.AutoSize = true;
+            this.stepLabel13.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel13.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel13.Image")));
             this.stepLabel13.Location = new System.Drawing.Point(426, 76);
@@ -1571,6 +1610,7 @@ namespace Connect4Theory
             // 
             this.stepLabel35.AutoSize = true;
             this.stepLabel35.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.stepLabel35.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel35.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel35.Image")));
             this.stepLabel35.Location = new System.Drawing.Point(0, 356);
@@ -1583,6 +1623,7 @@ namespace Connect4Theory
             // 
             this.stepLabel36.AutoSize = true;
             this.stepLabel36.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.stepLabel36.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel36.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel36.Image")));
             this.stepLabel36.Location = new System.Drawing.Point(76, 356);
@@ -1594,6 +1635,7 @@ namespace Connect4Theory
             // stepLabel41
             // 
             this.stepLabel41.AutoSize = true;
+            this.stepLabel41.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stepLabel41.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stepLabel41.Image = ((System.Drawing.Image)(resources.GetObject("stepLabel41.Image")));
             this.stepLabel41.Location = new System.Drawing.Point(426, 356);
