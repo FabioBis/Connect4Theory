@@ -29,6 +29,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Connect4Theory
 {
@@ -80,6 +81,30 @@ namespace Connect4Theory
 
     public partial class Connect4Theory : Form
     {
+        // Button states.
+        ButtonState gameButtonState = ButtonState.Start;
+        ButtonState stepButtonState = ButtonState.Start;
+        ButtonState streakButtonState = ButtonState.Start;
+
+        // Threads.
+        Thread gameThread = null;
+        Thread stepThread = null;
+        Thread streakThread = null;
+
+        // Delegates.
+        delegate void UpdateTextDelegate(Control ctl, string text);
+        delegate void UpdateEnabledDelegate(Control crl, bool p);
+        delegate void ShowProgressDelegate(int result);
+        delegate void UpdateResultsDelegate(int total);
+        delegate void InitStatisticsDelegate(int total);
+        delegate void UpdateMaximumDelegate(ProgressBar ctl, int total);
+
+        /* Single Game Mode Data. */
+
+        /* Step AI Game Mode Data. */
+
+        /* Streak AI Game Mode Data. */
+
         public Connect4Theory()
         {
             InitializeComponent();
