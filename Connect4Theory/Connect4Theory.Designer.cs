@@ -798,6 +798,7 @@ namespace Connect4Theory
             // gameLabel00
             // 
             this.gameLabel00.AutoSize = true;
+            this.gameLabel00.BackColor = System.Drawing.Color.LightSteelBlue;
             this.gameLabel00.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gameLabel00.Image = ((System.Drawing.Image)(resources.GetObject("gameLabel00.Image")));
             this.gameLabel00.Location = new System.Drawing.Point(0, 0);
