@@ -267,6 +267,7 @@ namespace Connect4Theory
             this.singleGameButton.TabIndex = 1;
             this.singleGameButton.Text = "Start";
             this.singleGameButton.UseVisualStyleBackColor = true;
+            this.singleGameButton.Click += new System.EventHandler(this.singleGameButton_Click);
             // 
             // settingGamePanel
             // 
@@ -315,6 +316,7 @@ namespace Connect4Theory
             this.selectOpponentBox.Name = "selectOpponentBox";
             this.selectOpponentBox.Size = new System.Drawing.Size(94, 21);
             this.selectOpponentBox.TabIndex = 1;
+            this.selectOpponentBox.SelectedIndexChanged += new System.EventHandler(this.selectOpponentBox_SelectedIndexChanged);
             // 
             // firtToMoveLabel
             // 
@@ -341,6 +343,7 @@ namespace Connect4Theory
             this.firstToMoveBox.Name = "firstToMoveBox";
             this.firstToMoveBox.Size = new System.Drawing.Size(94, 21);
             this.firstToMoveBox.TabIndex = 3;
+            this.firstToMoveBox.SelectedIndexChanged += new System.EventHandler(this.firstToMoveBox_SelectedIndexChanged);
             // 
             // descriptionLabel
             // 
@@ -442,6 +445,7 @@ namespace Connect4Theory
             this.gameLabel40.Name = "gameLabel40";
             this.gameLabel40.Size = new System.Drawing.Size(70, 76);
             this.gameLabel40.TabIndex = 40;
+            this.gameLabel40.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel39
             // 
@@ -453,6 +457,7 @@ namespace Connect4Theory
             this.gameLabel39.Name = "gameLabel39";
             this.gameLabel39.Size = new System.Drawing.Size(70, 76);
             this.gameLabel39.TabIndex = 39;
+            this.gameLabel39.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel38
             // 
@@ -464,6 +469,7 @@ namespace Connect4Theory
             this.gameLabel38.Name = "gameLabel38";
             this.gameLabel38.Size = new System.Drawing.Size(70, 76);
             this.gameLabel38.TabIndex = 38;
+            this.gameLabel38.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel37
             // 
@@ -475,6 +481,7 @@ namespace Connect4Theory
             this.gameLabel37.Name = "gameLabel37";
             this.gameLabel37.Size = new System.Drawing.Size(70, 76);
             this.gameLabel37.TabIndex = 37;
+            this.gameLabel37.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel34
             // 
@@ -486,6 +493,7 @@ namespace Connect4Theory
             this.gameLabel34.Name = "gameLabel34";
             this.gameLabel34.Size = new System.Drawing.Size(76, 70);
             this.gameLabel34.TabIndex = 34;
+            this.gameLabel34.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel33
             // 
@@ -497,6 +505,7 @@ namespace Connect4Theory
             this.gameLabel33.Name = "gameLabel33";
             this.gameLabel33.Size = new System.Drawing.Size(70, 70);
             this.gameLabel33.TabIndex = 33;
+            this.gameLabel33.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel32
             // 
@@ -508,6 +517,7 @@ namespace Connect4Theory
             this.gameLabel32.Name = "gameLabel32";
             this.gameLabel32.Size = new System.Drawing.Size(70, 70);
             this.gameLabel32.TabIndex = 32;
+            this.gameLabel32.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel31
             // 
@@ -519,6 +529,7 @@ namespace Connect4Theory
             this.gameLabel31.Name = "gameLabel31";
             this.gameLabel31.Size = new System.Drawing.Size(70, 70);
             this.gameLabel31.TabIndex = 31;
+            this.gameLabel31.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel30
             // 
@@ -530,6 +541,7 @@ namespace Connect4Theory
             this.gameLabel30.Name = "gameLabel30";
             this.gameLabel30.Size = new System.Drawing.Size(70, 70);
             this.gameLabel30.TabIndex = 30;
+            this.gameLabel30.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel29
             // 
@@ -541,6 +553,7 @@ namespace Connect4Theory
             this.gameLabel29.Name = "gameLabel29";
             this.gameLabel29.Size = new System.Drawing.Size(70, 70);
             this.gameLabel29.TabIndex = 29;
+            this.gameLabel29.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel28
             // 
@@ -552,6 +565,7 @@ namespace Connect4Theory
             this.gameLabel28.Name = "gameLabel28";
             this.gameLabel28.Size = new System.Drawing.Size(76, 70);
             this.gameLabel28.TabIndex = 28;
+            this.gameLabel28.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel27
             // 
@@ -563,6 +577,7 @@ namespace Connect4Theory
             this.gameLabel27.Name = "gameLabel27";
             this.gameLabel27.Size = new System.Drawing.Size(76, 70);
             this.gameLabel27.TabIndex = 27;
+            this.gameLabel27.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel26
             // 
@@ -574,6 +589,7 @@ namespace Connect4Theory
             this.gameLabel26.Name = "gameLabel26";
             this.gameLabel26.Size = new System.Drawing.Size(70, 70);
             this.gameLabel26.TabIndex = 26;
+            this.gameLabel26.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel25
             // 
@@ -585,6 +601,7 @@ namespace Connect4Theory
             this.gameLabel25.Name = "gameLabel25";
             this.gameLabel25.Size = new System.Drawing.Size(70, 70);
             this.gameLabel25.TabIndex = 25;
+            this.gameLabel25.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel24
             // 
@@ -596,6 +613,7 @@ namespace Connect4Theory
             this.gameLabel24.Name = "gameLabel24";
             this.gameLabel24.Size = new System.Drawing.Size(70, 70);
             this.gameLabel24.TabIndex = 24;
+            this.gameLabel24.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel23
             // 
@@ -607,6 +625,7 @@ namespace Connect4Theory
             this.gameLabel23.Name = "gameLabel23";
             this.gameLabel23.Size = new System.Drawing.Size(70, 70);
             this.gameLabel23.TabIndex = 23;
+            this.gameLabel23.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel22
             // 
@@ -618,6 +637,7 @@ namespace Connect4Theory
             this.gameLabel22.Name = "gameLabel22";
             this.gameLabel22.Size = new System.Drawing.Size(70, 70);
             this.gameLabel22.TabIndex = 22;
+            this.gameLabel22.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel21
             // 
@@ -629,6 +649,7 @@ namespace Connect4Theory
             this.gameLabel21.Name = "gameLabel21";
             this.gameLabel21.Size = new System.Drawing.Size(76, 70);
             this.gameLabel21.TabIndex = 21;
+            this.gameLabel21.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel20
             // 
@@ -640,6 +661,7 @@ namespace Connect4Theory
             this.gameLabel20.Name = "gameLabel20";
             this.gameLabel20.Size = new System.Drawing.Size(76, 70);
             this.gameLabel20.TabIndex = 20;
+            this.gameLabel20.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel19
             // 
@@ -651,6 +673,7 @@ namespace Connect4Theory
             this.gameLabel19.Name = "gameLabel19";
             this.gameLabel19.Size = new System.Drawing.Size(70, 70);
             this.gameLabel19.TabIndex = 19;
+            this.gameLabel19.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel18
             // 
@@ -662,6 +685,7 @@ namespace Connect4Theory
             this.gameLabel18.Name = "gameLabel18";
             this.gameLabel18.Size = new System.Drawing.Size(70, 70);
             this.gameLabel18.TabIndex = 18;
+            this.gameLabel18.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel17
             // 
@@ -673,6 +697,7 @@ namespace Connect4Theory
             this.gameLabel17.Name = "gameLabel17";
             this.gameLabel17.Size = new System.Drawing.Size(70, 70);
             this.gameLabel17.TabIndex = 17;
+            this.gameLabel17.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel16
             // 
@@ -684,6 +709,7 @@ namespace Connect4Theory
             this.gameLabel16.Name = "gameLabel16";
             this.gameLabel16.Size = new System.Drawing.Size(70, 70);
             this.gameLabel16.TabIndex = 16;
+            this.gameLabel16.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel15
             // 
@@ -695,6 +721,7 @@ namespace Connect4Theory
             this.gameLabel15.Name = "gameLabel15";
             this.gameLabel15.Size = new System.Drawing.Size(70, 70);
             this.gameLabel15.TabIndex = 15;
+            this.gameLabel15.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel14
             // 
@@ -706,6 +733,7 @@ namespace Connect4Theory
             this.gameLabel14.Name = "gameLabel14";
             this.gameLabel14.Size = new System.Drawing.Size(76, 70);
             this.gameLabel14.TabIndex = 14;
+            this.gameLabel14.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel12
             // 
@@ -717,6 +745,7 @@ namespace Connect4Theory
             this.gameLabel12.Name = "gameLabel12";
             this.gameLabel12.Size = new System.Drawing.Size(70, 70);
             this.gameLabel12.TabIndex = 12;
+            this.gameLabel12.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel11
             // 
@@ -728,6 +757,7 @@ namespace Connect4Theory
             this.gameLabel11.Name = "gameLabel11";
             this.gameLabel11.Size = new System.Drawing.Size(70, 70);
             this.gameLabel11.TabIndex = 11;
+            this.gameLabel11.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel10
             // 
@@ -739,6 +769,7 @@ namespace Connect4Theory
             this.gameLabel10.Name = "gameLabel10";
             this.gameLabel10.Size = new System.Drawing.Size(70, 70);
             this.gameLabel10.TabIndex = 10;
+            this.gameLabel10.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel09
             // 
@@ -750,6 +781,7 @@ namespace Connect4Theory
             this.gameLabel09.Name = "gameLabel09";
             this.gameLabel09.Size = new System.Drawing.Size(70, 70);
             this.gameLabel09.TabIndex = 9;
+            this.gameLabel09.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel05
             // 
@@ -761,6 +793,7 @@ namespace Connect4Theory
             this.gameLabel05.Name = "gameLabel05";
             this.gameLabel05.Size = new System.Drawing.Size(70, 76);
             this.gameLabel05.TabIndex = 5;
+            this.gameLabel05.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel04
             // 
@@ -772,6 +805,7 @@ namespace Connect4Theory
             this.gameLabel04.Name = "gameLabel04";
             this.gameLabel04.Size = new System.Drawing.Size(70, 76);
             this.gameLabel04.TabIndex = 4;
+            this.gameLabel04.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel03
             // 
@@ -783,6 +817,7 @@ namespace Connect4Theory
             this.gameLabel03.Name = "gameLabel03";
             this.gameLabel03.Size = new System.Drawing.Size(70, 76);
             this.gameLabel03.TabIndex = 3;
+            this.gameLabel03.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel02
             // 
@@ -794,6 +829,7 @@ namespace Connect4Theory
             this.gameLabel02.Name = "gameLabel02";
             this.gameLabel02.Size = new System.Drawing.Size(70, 76);
             this.gameLabel02.TabIndex = 2;
+            this.gameLabel02.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel00
             // 
@@ -806,6 +842,7 @@ namespace Connect4Theory
             this.gameLabel00.Name = "gameLabel00";
             this.gameLabel00.Size = new System.Drawing.Size(76, 76);
             this.gameLabel00.TabIndex = 0;
+            this.gameLabel00.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel01
             // 
@@ -817,6 +854,7 @@ namespace Connect4Theory
             this.gameLabel01.Name = "gameLabel01";
             this.gameLabel01.Size = new System.Drawing.Size(70, 76);
             this.gameLabel01.TabIndex = 1;
+            this.gameLabel01.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel06
             // 
@@ -828,6 +866,7 @@ namespace Connect4Theory
             this.gameLabel06.Name = "gameLabel06";
             this.gameLabel06.Size = new System.Drawing.Size(76, 76);
             this.gameLabel06.TabIndex = 6;
+            this.gameLabel06.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel07
             // 
@@ -839,6 +878,7 @@ namespace Connect4Theory
             this.gameLabel07.Name = "gameLabel07";
             this.gameLabel07.Size = new System.Drawing.Size(76, 70);
             this.gameLabel07.TabIndex = 7;
+            this.gameLabel07.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel08
             // 
@@ -850,6 +890,7 @@ namespace Connect4Theory
             this.gameLabel08.Name = "gameLabel08";
             this.gameLabel08.Size = new System.Drawing.Size(70, 70);
             this.gameLabel08.TabIndex = 8;
+            this.gameLabel08.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel13
             // 
@@ -861,6 +902,7 @@ namespace Connect4Theory
             this.gameLabel13.Name = "gameLabel13";
             this.gameLabel13.Size = new System.Drawing.Size(76, 70);
             this.gameLabel13.TabIndex = 13;
+            this.gameLabel13.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel35
             // 
@@ -873,6 +915,7 @@ namespace Connect4Theory
             this.gameLabel35.Name = "gameLabel35";
             this.gameLabel35.Size = new System.Drawing.Size(76, 76);
             this.gameLabel35.TabIndex = 35;
+            this.gameLabel35.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel36
             // 
@@ -885,6 +928,7 @@ namespace Connect4Theory
             this.gameLabel36.Name = "gameLabel36";
             this.gameLabel36.Size = new System.Drawing.Size(70, 76);
             this.gameLabel36.TabIndex = 36;
+            this.gameLabel36.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // gameLabel41
             // 
@@ -896,6 +940,7 @@ namespace Connect4Theory
             this.gameLabel41.Name = "gameLabel41";
             this.gameLabel41.Size = new System.Drawing.Size(76, 76);
             this.gameLabel41.TabIndex = 41;
+            this.gameLabel41.Click += new System.EventHandler(this.gameLabel_Click);
             // 
             // stepPage
             // 

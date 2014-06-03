@@ -234,8 +234,8 @@ namespace Connect4Theory
         {
             if (lbl.InvokeRequired)
             {
-                UpdateEnabledDelegate callbackMethod =
-                    new UpdateEnabledDelegate(UpdateEnabled);
+                UpdateSquareDelegate callbackMethod =
+                    new UpdateSquareDelegate(UpdateSquare);
                 this.Invoke(callbackMethod, lbl, kind);
             }
             else
@@ -300,7 +300,7 @@ namespace Connect4Theory
         /// </summary>
         private void SingleGameStart()
         {
-            stepGame = new Connect4Core();
+            game = new Connect4Core();
             foreach (Label square in gameSquares)
             {
                 UpdateSquare(square, 0);
@@ -345,6 +345,183 @@ namespace Connect4Theory
             string toParse = new string(toConvert);
             return (int.Parse(toParse) % 7);
             
+        }
+
+        // TODO
+        private void resetSingleGame()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Return the player name who moves last.
+        /// </summary>
+        /// <returns></returns>
+        private string getLastPlayer()
+        {
+            int turn = game.GetLastTurn();
+            if (turn == -1)
+            {
+                return player1;
+            }
+            else
+            {
+                return player2;
+            }
+        }
+
+        /// <summary>
+        /// Return the player name who moves next.
+        /// </summary>
+        /// <returns></returns>
+        private string getNextPlayer()
+        {
+            int turn = game.GetNextTurn();
+            if (turn == -1)
+            {
+                return player1;
+            }
+            else
+            {
+                return player2;
+            }
+        }
+
+
+        /* Event handlers for the single game mode. */
+
+        /// <summary>
+        /// The user clicked a label to perform his move.
+        /// </summary>
+        private void gameLabel_Click(object sender, EventArgs e)
+        {
+            Label clickedLabel = sender as Label;
+            int column = labelToColumnIndex(clickedLabel);
+            if (column < 0 || column > 6)
+            {
+                MessageBox.Show("Error", "An Error occourred! We're Sorry...");
+            }
+            else if (game.Move(column))
+            {
+                // The move is sound, set the symbol on the board.
+                int index = game.GetLastSquareMove();
+                Label filledLabel = gameSquares.ElementAt<Label>(index);
+                UpdateSquare(filledLabel, game.GetLastTurn());
+                if (game.CheckVictory())
+                {
+                    UpdateText(messageGameLabel, getLastPlayer() + " won!");
+                }
+                else if (game.IsOver())
+                {
+                    UpdateText(messageGameLabel, "This match is a draw!");
+                }
+                else
+                {
+                    if (opponent.Equals(Opponent.Manual))
+                    {
+                        UpdateText(messageGameLabel,  getNextPlayer() +
+                            " make your move!");
+                    }
+                    else
+                    {
+                        // TODO.
+                    }
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// The player select the opponent in the single game.
+        /// </summary>
+        private void selectOpponentBox_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
+        {
+            if (Enum.TryParse<Opponent>(selectOpponentBox.SelectedItem.ToString(),
+                    true, out opponent))
+            {
+                switch (opponent)
+                {
+                    case Opponent.Manual:
+                        UpdateText(descriptionLabel, "Player VS Player mode. ");
+                        break;
+                    case Opponent.Sheldon:
+                        UpdateText(descriptionLabel, "You know, Sheldon is too"
+                            + " smart for anyone. You can just draw a match"
+                            + " against him, if You are good enough! ");
+                        break;
+                    //case Opponent.Penny:
+                    //    UpdateText(descriptionLabel, "Ok, Penny is not the best"
+                    //    + " player, but don't underestimate her. ");
+                    //    break;
+                    //case Opponent.Stuart:
+                    //    UpdateText(descriptionLabel, "Stuart is not the smarter"
+                    //    + " player, more aggressive than Penny, but still beatable. ");
+                    //    break;
+                    default:
+                        UpdateText(messageGameLabel, "A problem occoured,"
+                        + " please chose the opponent again");
+                        break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// The player select who move first in the next single game.
+        /// </summary>
+        private void firstToMoveBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (firstToMoveBox.SelectedItem != null)
+            {
+                if (Enum.TryParse<First>(firstToMoveBox.SelectedItem.ToString(),
+                    true, out first))
+                {
+                    switch (first)
+                    {
+                        case First.Me:
+                            break;
+                        case First.Opponent:
+                            break;
+                        default:
+                            first = First.Empty;
+                            UpdateText(messageGameLabel,
+                                "A problem occoured, please choose" +
+                                " the first to move again.");
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                first = First.Empty;
+            }
+        }
+
+        /// <summary>
+        /// The player click the button to start the single game.
+        /// </summary>
+        private void singleGameButton_Click(object sender, EventArgs e)
+        {
+            if (gameButtonState.Equals(ButtonState.Start))
+            {
+                gameButtonState = switchButtonState(
+                    gameButtonState,
+                    singleGameButton);
+                gameThread = new Thread(new ThreadStart(SingleGameStart));
+                gameThread.Start();
+            }
+            else
+            {
+                gameButtonState = switchButtonState(
+                    gameButtonState,
+                    singleGameButton);
+                resetSingleGame();
+                gameThread.Abort();
+            }
         }
 
     }
