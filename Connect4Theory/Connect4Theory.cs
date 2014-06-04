@@ -120,17 +120,45 @@ namespace Connect4Theory
         First first = First.Empty;
 
         // The AI strategy.
-        //Connect4Strategy strategy { get; set; }
+        //Connect4Strategy gameStrategy { get; set; }
 
         /* Step AI Game Mode Data. */
 
-        // The single game core.
+        // The step by step opponents.
+        AI stepPlayer1 = AI.Empty;
+        AI stepPlayer2 = AI.Empty;
+
+        // The step by step AI strategies.
+        //Connect4Strategy stepStrategy1 { get; set; }
+        //Connect4Strategy stepStrategy2 { get; set; }
+
+        // The step game core.
         Connect4Core stepGame;
 
         // The list of all the single game board square.
         List<Label> stepSquares;
 
         /* Streak AI Game Mode Data. */
+
+        // The choosen opponents.
+        AI streakPlayer1 = AI.Empty;
+        AI streakPlayer2 = AI.Empty;
+
+        // The AI strategies.
+        //Connect4Strategy streakStrategy1 { get; set; }
+        //Connect4Strategy streakStrategy2 { get; set; }
+
+        // The number of matches to play.
+        int totalMatches = 0;
+        int matchesLeft = 0;
+
+        // Statistics.
+        int draws = 0;
+        int p1Wins = 0;
+        int p2Wins = 0;
+
+        // Is the streak ended?
+        bool streakEnded = false;
 
         public Connect4Theory()
         {
