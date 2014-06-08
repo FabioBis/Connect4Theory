@@ -117,6 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="explainMultiGameBox.Text" xml:space="preserve">
+    <value>The "Streak Test AI" feature of Connect4Theory let You run a streak of matches involving two AI players.
+ 
+You have to select two AI players and the number of matches to be played. The matches will not be displayed on the board but at the end of the streak the game staistics will be displayed.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="gameLabel40.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1724,10 +1729,5 @@ The matches will be displayed on the board.</value>
         EgkscOf7pZSjVSUVRoXZDvlqlRW5+H4p06VJ0iRpkl2ZPE2SJlnXJP8AvV9SmjiIjZMAAAAASUVORK5C
         YII=
 </value>
-  </data>
-  <data name="explainMultiGameBox.Text" xml:space="preserve">
-    <value>The "Streak Test AI" feature of Connect4Theory let You run a streak of matches involving two AI players.
- 
-You have to select two AI players and the number of matches to be played. The matches will not be displayed on the board but at the end of the streak the game staistics will be displayed.</value>
   </data>
 </root>

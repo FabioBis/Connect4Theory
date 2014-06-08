@@ -120,7 +120,7 @@ namespace Connect4Theory
         First first = First.Empty;
 
         // The AI strategy.
-        //Connect4Strategy gameStrategy { get; set; }
+        BoardGameStrategy gameStrategy { get; set; }
 
         /* Step AI Game Mode Data. */
 
@@ -129,8 +129,8 @@ namespace Connect4Theory
         AI stepPlayer2 = AI.Empty;
 
         // The step by step AI strategies.
-        //Connect4Strategy stepStrategy1 { get; set; }
-        //Connect4Strategy stepStrategy2 { get; set; }
+        //BoardGameStrategy stepStrategy1 { get; set; }
+        //BoardGameStrategy stepStrategy2 { get; set; }
 
         // The step game core.
         Connect4Core stepGame;
@@ -145,8 +145,8 @@ namespace Connect4Theory
         AI streakPlayer2 = AI.Empty;
 
         // The AI strategies.
-        //Connect4Strategy streakStrategy1 { get; set; }
-        //Connect4Strategy streakStrategy2 { get; set; }
+        //BoardGameStrategy streakStrategy1 { get; set; }
+        //BoardGameStrategy streakStrategy2 { get; set; }
 
         // The number of matches to play.
         int totalMatches = 0;
@@ -242,20 +242,35 @@ namespace Connect4Theory
 
         private void UpdateResults(int total)
         {
-            /// TODO
-            //if (p1Wins > p2Wins)
-            //{
-            //    UpdateText(messageTestsLabel, aiPlayer1.ToString() + " is the winner!");
-            //}
-            //else if (p2Wins > p1Wins)
-            //{
-            //    UpdateText(messageTestsLabel, aiPlayer2.ToString() + " is the winner!");
-            //}
-            //else
-            //{
-            //    UpdateText(messageTestsLabel, "The competition is a draw!");
-            //}
-            //UpdateText(statisticsLabel, printStatistics());
+            if (p1Wins > p2Wins)
+            {
+                UpdateText(messageStreakLabel, streakPlayer1.ToString() + " is the winner!");
+            }
+            else if (p2Wins > p1Wins)
+            {
+                UpdateText(messageStreakLabel, streakPlayer2.ToString() + " is the winner!");
+            }
+            else
+            {
+                UpdateText(messageStreakLabel, "The competition is a draw!");
+            }
+            UpdateText(statisticsLabel, printStatistics());
+        }
+
+        private string printStatistics()
+        {
+            int matchesPlayed = totalMatches - matchesLeft;
+            return
+                "Game Streak Statistics\n" +
+                "----------------------\n" +
+                "Total matches played: " + matchesPlayed.ToString() +
+                ".\n" +
+                "Player 1 (" + streakPlayer1.ToString() + ") won " + p1Wins.ToString() +
+                " matches " + "(" + ((float)p1Wins) / matchesPlayed * 100 + "%).\n" +
+                "Player 2 (" + streakPlayer2.ToString() + ") won " + p2Wins.ToString() +
+                " matches " + "(" + ((float)p2Wins) / matchesPlayed * 100 + "%).\n" +
+                "Total draws " + draws +
+                " (" + ((float)draws) / matchesPlayed * 100 + "%).";
         }
 
         private void UpdateSquare(Label lbl, int kind)
@@ -296,8 +311,6 @@ namespace Connect4Theory
                 ctl.Maximum = total;
             }
         }
-
-        /* Class functions and methods. */
 
         /// <summary>
         /// Switch the state of a given button.
@@ -341,6 +354,7 @@ namespace Connect4Theory
             }
             else
             {
+                gameStrategy = initializeAI(opponent);
                 if (first.Equals(First.Me))
                 {
                     player1 = "You";
@@ -351,10 +365,54 @@ namespace Connect4Theory
                 {
                     player1 = opponent.ToString();
                     player2 = "You";
+                    aiMove();
                 }
-                //initializeAI(opponent);
-                //aiMove();
             }
+        }
+
+        private void aiMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Initialize the AI strategy.
+        /// Given an opponent, this method load the related
+        /// strategy. The integer parameter "square" represent the
+        /// first move of the player.
+        /// </summary>
+        /// <param name="opponent">The current opponent AI.</param>
+        private BoardGameStrategy initializeAI(Opponent opponent)
+        {
+            BoardGameStrategy result = null;
+            switch (opponent)
+            {
+                case Opponent.Manual:
+                    // Player VS player, nothing to load.
+                    break;
+                case Opponent.Sheldon:
+                    result = initSheldonAI();
+                    break;
+                case Opponent.Empty:
+                    // Nothing to load.
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }
+
+        private BoardGameStrategy initSheldonAI()
+        {
+            if (first.Equals(First.Me))
+            {
+                return new Connect4AlphaBetaStrategy(2);
+            }
+            else
+            {
+                return new Connect4AlphaBetaStrategy(1);
+            }
+            
         }
 
         /* Auxiliary Methods. */
