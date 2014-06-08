@@ -273,6 +273,12 @@ namespace Connect4Theory
                 " (" + ((float)draws) / matchesPlayed * 100 + "%).";
         }
 
+        /// <summary>
+        /// Updates the square graphics.
+        /// </summary>
+        /// <param name="lbl">The label to change.</param>
+        /// <param name="kind">The kind of the new label: -1 red, 1 yellow
+        /// and 0 back to none.</param>
         private void UpdateSquare(Label lbl, int kind)
         {
             if (lbl.InvokeRequired)
@@ -339,7 +345,7 @@ namespace Connect4Theory
         /// <summary>
         /// Start the single game.
         /// </summary>
-        private void SingleGameStart()
+        private void singleGameStart()
         {
             game = new Connect4Core();
             foreach (Label square in gameSquares)
@@ -370,9 +376,53 @@ namespace Connect4Theory
             }
         }
 
+        /// <summary>
+        /// Disable the GUI labels.
+        /// </summary>
+        private void singleGameStop()
+        {
+            foreach (Label square in gameSquares)
+            {
+               UpdateEnabled(square, false);
+            }
+        }
+
         private void aiMove()
         {
-            throw new NotImplementedException();
+            // The AI make his move, return the related square index.
+            int column = gameStrategy.OwnMove();
+            if (game.Move(column))
+            {
+                // The Ai move is valid, update the board.
+                int square = game.GetLastSquareMove();
+                Label label = indexToGameLabel(square);
+                UpdateSquare(label, game.GetLastTurn());
+                switch (game.CheckForWinner())
+                {
+                    case -2:
+                        UpdateText(messageGameLabel, player1 + " won!");
+                        singleGameStop();
+                        UpdateText(singleGameButton, "Reset");
+                        break;
+                    case 2:
+                        UpdateText(messageGameLabel, player2 + " won!");
+                        singleGameStop();
+                        UpdateText(singleGameButton, "Reset");
+                        break;
+                    case 1:
+                        UpdateText(messageGameLabel, "This match is a draw!");
+                        singleGameStop();
+                        UpdateText(singleGameButton, "Reset");
+                        break;
+                    default:
+                        UpdateText(messageGameLabel, "Make your moves!");
+                        break;
+                }
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         /// <summary>
@@ -433,16 +483,43 @@ namespace Connect4Theory
             
         }
 
-        // TODO
-        private void resetSingleGame()
+        private Label indexToGameLabel(int square)
         {
-            throw new NotImplementedException();
+            return gameSquares.ElementAt(square);
+        }
+
+        private Label indexToStepLabel(int square)
+        {
+            return stepSquares.ElementAt(square);
         }
 
         /// <summary>
-        /// Return the player name who moves last.
+        /// Reset data and gui elements for the single game mode.
         /// </summary>
-        /// <returns></returns>
+        private void singleGameReset()
+        {
+            singleGameStop();
+            clearBoard();
+            UpdateText(messageGameLabel, "");
+            player1 = "";
+            player2 = "";
+            return;
+        }
+
+        /// <summary>
+        /// Clear the game board GUI.
+        /// </summary>
+        private void clearBoard()
+        {
+            foreach (Label square in gameSquares)
+            {
+                UpdateSquare(square, 0);
+            }
+        }
+
+        /// <summary>
+        /// Returns the player name who moves last.
+        /// </summary>
         private string getLastPlayer()
         {
             int turn = game.GetLastTurn();
@@ -473,7 +550,6 @@ namespace Connect4Theory
             }
         }
 
-
         /* Event handlers for the single game mode. */
 
         /// <summary>
@@ -491,8 +567,8 @@ namespace Connect4Theory
             {
                 // The move is sound, set the symbol on the board.
                 int index = game.GetLastSquareMove();
-                Label filledLabel = gameSquares.ElementAt<Label>(index);
-                UpdateSquare(filledLabel, game.GetLastTurn());
+                Label toUpdateLabel = gameSquares.ElementAt<Label>(index);
+                UpdateSquare(toUpdateLabel, game.GetLastTurn());
                 if (game.CheckVictory())
                 {
                     UpdateText(messageGameLabel, getLastPlayer() + " won!");
@@ -510,13 +586,16 @@ namespace Connect4Theory
                     }
                     else
                     {
-                        // TODO.
+                        // Update the AI with the user move.
+                        gameStrategy.OpponentMove(column);
+                        // Let the AI play.
+                        aiMove();
                     }
                 }
             }
             else
             {
-
+                UpdateText(messageGameLabel, "The column is full, try again!");
             }
         }
 
@@ -597,7 +676,7 @@ namespace Connect4Theory
                 gameButtonState = switchButtonState(
                     gameButtonState,
                     singleGameButton);
-                gameThread = new Thread(new ThreadStart(SingleGameStart));
+                gameThread = new Thread(new ThreadStart(singleGameStart));
                 gameThread.Start();
             }
             else
@@ -605,7 +684,7 @@ namespace Connect4Theory
                 gameButtonState = switchButtonState(
                     gameButtonState,
                     singleGameButton);
-                resetSingleGame();
+                singleGameReset();
                 gameThread.Abort();
             }
         }
