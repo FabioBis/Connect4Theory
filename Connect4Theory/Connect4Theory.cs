@@ -573,7 +573,7 @@ namespace Connect4Theory
                 {
                     UpdateText(messageGameLabel, getLastPlayer() + " won!");
                 }
-                else if (game.IsOver())
+                else if (game.GameOver())
                 {
                     UpdateText(messageGameLabel, "This match is a draw!");
                 }
