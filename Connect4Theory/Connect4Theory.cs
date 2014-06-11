@@ -122,6 +122,9 @@ namespace Connect4Theory
         // The AI strategy.
         BoardGameStrategy gameStrategy { get; set; }
 
+        // Control GUI board flag.
+        bool isGameBoardAvailabe = false;
+
         /* Step AI Game Mode Data. */
 
         // The step by step opponents.
@@ -357,6 +360,7 @@ namespace Connect4Theory
                 player1 = "Player 1";
                 player2 = "Player 2";
                 UpdateText(messageGameLabel, "Player 1 make your move!");
+                isGameBoardAvailabe = true;
             }
             else
             {
@@ -366,6 +370,7 @@ namespace Connect4Theory
                     player1 = "You";
                     player2 = opponent.ToString();
                     UpdateText(messageGameLabel, "Make your moves!");
+                    isGameBoardAvailabe = true;
                 }
                 else
                 {
@@ -373,17 +378,6 @@ namespace Connect4Theory
                     player2 = "You";
                     aiMove();
                 }
-            }
-        }
-
-        /// <summary>
-        /// Disable the GUI labels.
-        /// </summary>
-        private void singleGameStop()
-        {
-            foreach (Label square in gameSquares)
-            {
-               UpdateEnabled(square, false);
             }
         }
 
@@ -401,21 +395,22 @@ namespace Connect4Theory
                 {
                     case -2:
                         UpdateText(messageGameLabel, player1 + " won!");
-                        singleGameStop();
+                        isGameBoardAvailabe = false;
                         UpdateText(singleGameButton, "Reset");
                         break;
                     case 2:
                         UpdateText(messageGameLabel, player2 + " won!");
-                        singleGameStop();
+                        isGameBoardAvailabe = false;
                         UpdateText(singleGameButton, "Reset");
                         break;
                     case 1:
                         UpdateText(messageGameLabel, "This match is a draw!");
-                        singleGameStop();
+                        isGameBoardAvailabe = false;
                         UpdateText(singleGameButton, "Reset");
                         break;
                     default:
                         UpdateText(messageGameLabel, "Make your moves!");
+                        isGameBoardAvailabe = true; 
                         break;
                 }
             }
@@ -498,7 +493,7 @@ namespace Connect4Theory
         /// </summary>
         private void singleGameReset()
         {
-            singleGameStop();
+            isGameBoardAvailabe = false;
             clearBoard();
             UpdateText(messageGameLabel, "");
             player1 = "";
@@ -557,45 +552,49 @@ namespace Connect4Theory
         /// </summary>
         private void gameLabel_Click(object sender, EventArgs e)
         {
-            Label clickedLabel = sender as Label;
-            int column = labelToColumnIndex(clickedLabel);
-            if (column < 0 || column > 6)
+            if (isGameBoardAvailabe)
             {
-                MessageBox.Show("Error", "An Error occourred! We're Sorry...");
-            }
-            else if (game.Move(column))
-            {
-                // The move is sound, set the symbol on the board.
-                int index = game.GetLastSquareMove();
-                Label toUpdateLabel = gameSquares.ElementAt<Label>(index);
-                UpdateSquare(toUpdateLabel, game.GetLastTurn());
-                if (game.CheckVictory())
+                Label clickedLabel = sender as Label;
+                int column = labelToColumnIndex(clickedLabel);
+                if (column < 0 || column > 6)
                 {
-                    UpdateText(messageGameLabel, getLastPlayer() + " won!");
+                    MessageBox.Show("Error", "An Error occourred! We're Sorry...");
                 }
-                else if (game.GameOver())
+                else if (game.Move(column))
                 {
-                    UpdateText(messageGameLabel, "This match is a draw!");
-                }
-                else
-                {
-                    if (opponent.Equals(Opponent.Manual))
+                    // The move is sound, set the symbol on the board.
+                    int index = game.GetLastSquareMove();
+                    Label toUpdateLabel = gameSquares.ElementAt<Label>(index);
+                    UpdateSquare(toUpdateLabel, game.GetLastTurn());
+                    if (game.CheckVictory())
                     {
-                        UpdateText(messageGameLabel,  getNextPlayer() +
-                            " make your move!");
+                        UpdateText(messageGameLabel, getLastPlayer() + " won!");
+                    }
+                    else if (game.GameOver())
+                    {
+                        UpdateText(messageGameLabel, "This match is a draw!");
                     }
                     else
                     {
-                        // Update the AI with the user move.
-                        gameStrategy.OpponentMove(column);
-                        // Let the AI play.
-                        aiMove();
+                        if (opponent.Equals(Opponent.Manual))
+                        {
+                            UpdateText(messageGameLabel, getNextPlayer() +
+                                " make your move!");
+                        }
+                        else
+                        {
+                            // Update the AI with the user move.
+                            gameStrategy.OpponentMove(column);
+                            // Let the AI play.
+                            isGameBoardAvailabe = false;
+                            aiMove();
+                        }
                     }
                 }
-            }
-            else
-            {
-                UpdateText(messageGameLabel, "The column is full, try again!");
+                else
+                {
+                    UpdateText(messageGameLabel, "The column is full, try again!");
+                }
             }
         }
 
