@@ -84,13 +84,13 @@ namespace Connect4Theory
     {
         // Button states.
         ButtonState gameButtonState = ButtonState.Start;
-        ButtonState stepButtonState = ButtonState.Start;
-        ButtonState streakButtonState = ButtonState.Start;
+        //ButtonState stepButtonState = ButtonState.Start;
+        //ButtonState streakButtonState = ButtonState.Start;
 
         // Threads.
         Thread gameThread = null;
-        Thread stepThread = null;
-        Thread streakThread = null;
+        //Thread stepThread = null;
+        //Thread streakThread = null;
 
         // Delegates.
         delegate void UpdateTextDelegate(Control ctl, string text);
@@ -128,15 +128,15 @@ namespace Connect4Theory
         /* Step AI Game Mode Data. */
 
         // The step by step opponents.
-        AI stepPlayer1 = AI.Empty;
-        AI stepPlayer2 = AI.Empty;
+        //AI stepPlayer1 = AI.Empty;
+        //AI stepPlayer2 = AI.Empty;
 
         // The step by step AI strategies.
         //BoardGameStrategy stepStrategy1 { get; set; }
         //BoardGameStrategy stepStrategy2 { get; set; }
 
         // The step game core.
-        Connect4Core stepGame;
+        //Connect4Core stepGame;
 
         // The list of all the single game board square.
         List<Label> stepSquares;
@@ -161,7 +161,7 @@ namespace Connect4Theory
         int p2Wins = 0;
 
         // Is the streak ended?
-        bool streakEnded = false;
+        //bool streakEnded = false;
 
         public Connect4Theory()
         {
@@ -385,7 +385,7 @@ namespace Connect4Theory
         {
             // The AI make his move, return the related square index.
             int column = gameStrategy.OwnMove();
-            if (game.Move(column))
+            if (game.CheckAndMove(column))
             {
                 // The Ai move is valid, update the board.
                 int square = game.GetLastSquareMove();
@@ -560,7 +560,7 @@ namespace Connect4Theory
                 {
                     MessageBox.Show("Error", "An Error occourred! We're Sorry...");
                 }
-                else if (game.Move(column))
+                else if (game.CheckAndMove(column))
                 {
                     // The move is sound, set the symbol on the board.
                     int index = game.GetLastSquareMove();
@@ -669,6 +669,27 @@ namespace Connect4Theory
         /// The player click the button to start the single game.
         /// </summary>
         private void singleGameButton_Click(object sender, EventArgs e)
+        {
+            if (opponent.Equals(Opponent.Empty))
+            {
+                UpdateText(messageGameLabel, "Please select an Opponent.");
+            }
+            else if (opponent.Equals(Opponent.Manual))
+            {
+                handleSingleGameStart();
+            }
+            else if (first.Equals(First.Empty))
+            {
+                UpdateText(messageGameLabel, "Please select who move first.");
+            }
+            else
+            {
+                handleSingleGameStart();
+            }
+
+        }
+
+        private void handleSingleGameStart()
         {
             if (gameButtonState.Equals(ButtonState.Start))
             {
