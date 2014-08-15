@@ -451,11 +451,15 @@ namespace Connect4Theory
         {
             if (first.Equals(First.Me))
             {
-                return new Connect4AlphaBetaStrategy(2);
+                // Not enough memory to generate this strategy.
+                // return new Connect4AlphaBetaStrategy(2);
+                return new Connect4AlphaBetaLimitedStrategy(2);
             }
             else
             {
-                return new Connect4AlphaBetaStrategy(1);
+                // Not enough memory to generate this strategy.
+                // return new Connect4AlphaBetaStrategy(1);
+                return new Connect4AlphaBetaLimitedStrategy(1);
             }
             
         }
