@@ -89,8 +89,13 @@ namespace Connect4Theory
 
         // Threads.
         Thread gameThread = null;
+        Thread aiThread = null;
         //Thread stepThread = null;
         //Thread streakThread = null;
+
+        // Create a new Mutex. The creating thread does not own the
+        // Mutex.
+        private static Mutex aiMutex = new Mutex();
 
         // Delegates.
         delegate void UpdateTextDelegate(Control ctl, string text);
@@ -124,6 +129,9 @@ namespace Connect4Theory
 
         // Control GUI board flag.
         bool isGameBoardAvailabe = false;
+
+        // Control Game Flow.
+        int aiColumnMove;
 
         /* Step AI Game Mode Data. */
 
@@ -333,12 +341,12 @@ namespace Connect4Theory
         {
             if (state.Equals(ButtonState.Start))
             {
-                UpdateText(btn, "Stop");
+                UpdateText(btn, "Game Reset");
                 return ButtonState.Stop;
             }
             else
             {
-                UpdateText(btn, "Start");
+                UpdateText(btn, "Game Start");
                 return ButtonState.Start;
             }
         }
@@ -364,18 +372,22 @@ namespace Connect4Theory
             }
             else
             {
-                gameStrategy = initializeAI(opponent);
+                UpdateSquare(currentTurn, game.GetNextTurn());
+                aiThread = new Thread(new ThreadStart(initAI));
+                aiThread.Start();
+                //gameStrategy = initializeAI(opponent);
                 if (first.Equals(First.Me))
                 {
                     player1 = "You";
                     player2 = opponent.ToString();
-                    UpdateText(messageGameLabel, "Make your moves!");
+                    UpdateText(messageGameLabel, "Your turn to move");
                     isGameBoardAvailabe = true;
                 }
                 else
                 {
                     player1 = opponent.ToString();
                     player2 = "You";
+                    UpdateText(messageGameLabel, opponent + " turn to move");
                     aiMove();
                 }
             }
@@ -383,6 +395,7 @@ namespace Connect4Theory
 
         private void aiMove()
         {
+            aiMutex.WaitOne();
             // The AI make his move, return the related square index.
             int column = gameStrategy.OwnMove();
             if (game.CheckAndMove(column))
@@ -396,20 +409,21 @@ namespace Connect4Theory
                     case -2:
                         UpdateText(messageGameLabel, player1 + " won!");
                         isGameBoardAvailabe = false;
-                        UpdateText(singleGameButton, "Reset");
+                        UpdateText(singleGameButton, "Game Reset");
                         break;
                     case 2:
                         UpdateText(messageGameLabel, player2 + " won!");
                         isGameBoardAvailabe = false;
-                        UpdateText(singleGameButton, "Reset");
+                        UpdateText(singleGameButton, "Game Reset");
                         break;
                     case 1:
                         UpdateText(messageGameLabel, "This match is a draw!");
                         isGameBoardAvailabe = false;
-                        UpdateText(singleGameButton, "Reset");
+                        UpdateText(singleGameButton, "Game Reset");
                         break;
                     default:
-                        UpdateText(messageGameLabel, "Make your moves!");
+                        UpdateText(messageGameLabel, "Your turn to move");
+                        UpdateSquare(currentTurn, game.GetNextTurn());
                         isGameBoardAvailabe = true; 
                         break;
                 }
@@ -418,6 +432,14 @@ namespace Connect4Theory
             {
                 throw new Exception();
             }
+            aiMutex.ReleaseMutex();
+        }
+
+        private void initAI()
+        {
+            aiMutex.WaitOne();
+            gameStrategy = initializeAI(opponent);
+            aiMutex.ReleaseMutex();
         }
 
         /// <summary>
@@ -500,6 +522,7 @@ namespace Connect4Theory
             isGameBoardAvailabe = false;
             clearBoard();
             UpdateText(messageGameLabel, "");
+            UpdateSquare(currentTurn, 0);
             player1 = "";
             player2 = "";
             return;
@@ -559,12 +582,12 @@ namespace Connect4Theory
             if (isGameBoardAvailabe)
             {
                 Label clickedLabel = sender as Label;
-                int column = labelToColumnIndex(clickedLabel);
-                if (column < 0 || column > 6)
+                aiColumnMove = labelToColumnIndex(clickedLabel);
+                if (aiColumnMove < 0 || aiColumnMove > 6)
                 {
                     MessageBox.Show("Error", "An Error occourred! We're Sorry...");
                 }
-                else if (game.CheckAndMove(column))
+                else if (game.CheckAndMove(aiColumnMove))
                 {
                     // The move is sound, set the symbol on the board.
                     int index = game.GetLastSquareMove();
@@ -573,10 +596,14 @@ namespace Connect4Theory
                     if (game.CheckVictory())
                     {
                         UpdateText(messageGameLabel, getLastPlayer() + " won!");
+                        isGameBoardAvailabe = false;
+                        UpdateText(singleGameButton, "Game Reset");
                     }
                     else if (game.GameOver())
                     {
                         UpdateText(messageGameLabel, "This match is a draw!");
+                        isGameBoardAvailabe = false;
+                        UpdateText(singleGameButton, "Game Reset");
                     }
                     else
                     {
@@ -587,10 +614,12 @@ namespace Connect4Theory
                         }
                         else
                         {
-                            // Update the AI with the user move.
-                            gameStrategy.OpponentMove(column);
-                            // Let the AI play.
                             isGameBoardAvailabe = false;
+                            UpdateSquare(currentTurn, game.GetNextTurn());
+                            UpdateText(messageGameLabel, opponent + " turn to move");                            
+                            // Update the AI with the user move.
+                            gameStrategy.OpponentMove(aiColumnMove);
+                            // Let the AI play.
                             aiMove();
                         }
                     }

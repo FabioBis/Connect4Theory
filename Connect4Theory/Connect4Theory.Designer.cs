@@ -54,6 +54,7 @@ namespace Connect4Theory
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Connect4Theory));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.gamePage = new System.Windows.Forms.TabPage();
+            this.currentTurn = new System.Windows.Forms.Label();
             this.controlPanel = new System.Windows.Forms.TableLayoutPanel();
             this.messageGameLabel = new System.Windows.Forms.Label();
             this.singleGameButton = new System.Windows.Forms.Button();
@@ -119,6 +120,7 @@ namespace Connect4Theory
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.currentStepTurn = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.stepLabel40 = new System.Windows.Forms.Label();
@@ -217,6 +219,7 @@ namespace Connect4Theory
             // gamePage
             // 
             this.gamePage.BackColor = System.Drawing.Color.SteelBlue;
+            this.gamePage.Controls.Add(this.currentTurn);
             this.gamePage.Controls.Add(this.controlPanel);
             this.gamePage.Controls.Add(this.settingGamePanel);
             this.gamePage.Controls.Add(this.boardContainer);
@@ -226,6 +229,18 @@ namespace Connect4Theory
             this.gamePage.Size = new System.Drawing.Size(779, 454);
             this.gamePage.TabIndex = 0;
             this.gamePage.Text = "The Game";
+            // 
+            // currentTurn
+            // 
+            this.currentTurn.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.currentTurn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentTurn.Location = new System.Drawing.Point(82, 228);
+            this.currentTurn.Name = "currentTurn";
+            this.currentTurn.Size = new System.Drawing.Size(100, 60);
+            this.currentTurn.TabIndex = 4;
+            this.currentTurn.Text = "Current Turn";
+            this.currentTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // controlPanel
             // 
@@ -265,7 +280,7 @@ namespace Connect4Theory
             this.singleGameButton.Name = "singleGameButton";
             this.singleGameButton.Size = new System.Drawing.Size(148, 37);
             this.singleGameButton.TabIndex = 1;
-            this.singleGameButton.Text = "Start";
+            this.singleGameButton.Text = "Game Start";
             this.singleGameButton.UseVisualStyleBackColor = true;
             this.singleGameButton.Click += new System.EventHandler(this.singleGameButton_Click);
             // 
@@ -967,20 +982,17 @@ namespace Connect4Theory
             this.tableLayoutPanel4.Controls.Add(this.messageStepLabel, 0, 6);
             this.tableLayoutPanel4.Controls.Add(this.buttonStep, 2, 5);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.currentStepTurn, 0, 4);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(8, 9);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 7;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(250, 414);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
@@ -1061,7 +1073,7 @@ namespace Connect4Theory
             this.messageStepLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.messageStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messageStepLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.messageStepLabel.Location = new System.Drawing.Point(3, 335);
+            this.messageStepLabel.Location = new System.Drawing.Point(3, 344);
             this.messageStepLabel.Name = "messageStepLabel";
             this.messageStepLabel.Size = new System.Drawing.Size(244, 80);
             this.messageStepLabel.TabIndex = 17;
@@ -1071,7 +1083,7 @@ namespace Connect4Theory
             // 
             this.buttonStep.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStep.Location = new System.Drawing.Point(153, 294);
+            this.buttonStep.Location = new System.Drawing.Point(153, 303);
             this.buttonStep.Name = "buttonStep";
             this.buttonStep.Size = new System.Drawing.Size(94, 37);
             this.buttonStep.TabIndex = 7;
@@ -1083,7 +1095,7 @@ namespace Connect4Theory
             this.tableLayoutPanel4.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(3, 293);
+            this.panel2.Location = new System.Drawing.Point(3, 302);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(144, 39);
             this.panel2.TabIndex = 18;
@@ -1107,6 +1119,19 @@ namespace Connect4Theory
             this.button1.TabIndex = 0;
             this.button1.Text = "Prev";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // currentStepTurn
+            // 
+            this.currentStepTurn.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.currentStepTurn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel4.SetColumnSpan(this.currentStepTurn, 3);
+            this.currentStepTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentStepTurn.Location = new System.Drawing.Point(3, 269);
+            this.currentStepTurn.Name = "currentStepTurn";
+            this.currentStepTurn.Size = new System.Drawing.Size(144, 30);
+            this.currentStepTurn.TabIndex = 19;
+            this.currentStepTurn.Text = "Current Turn";
+            this.currentStepTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -2170,6 +2195,8 @@ namespace Connect4Theory
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label currentTurn;
+        private System.Windows.Forms.Label currentStepTurn;
     }
 }
 
